@@ -35,6 +35,20 @@ const projects = [
         ]
     },
     {
+        "header": "React Project (WIP)",
+        "text": "A playground that I used to learn React.",
+        "media": {
+            "type": "image",
+            "urlImage": "./react.png",
+            "urlSite": "https://react.robertlim.dev",
+        },
+        "urlGithub": "https://github.com/BobSlim/odin-react",
+        "enabled": true,
+        "techs": [
+            "react",
+        ]
+    },
+    {
         "header": "The Odin Project (Course)",
         "text": "A course teaching me everything I need to know about web development. A very hands-on, project-focused approach. This page was built as part of it!",
         "media": {
@@ -48,7 +62,6 @@ const projects = [
             "html5",
             "css3",
             "javascript",
-            "react",
         ]
     },
     {
@@ -65,7 +78,6 @@ const projects = [
             "python"
         ]
     },
-
 ]
 
 const techs = {
