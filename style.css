@@ -2,6 +2,8 @@ html {
     --background-primary: white;
     --background-secondary: rgb(8, 145, 178);
     --default-shadow: 1px 1px 5px lightgray;
+    --space-large: 4rem;
+        --space-medium: 2rem;
     font-family: "roboto", system-ui;
 }
 
@@ -22,7 +24,7 @@ body {
 body>main,
 body>footer,
 body>header {
-    padding: 2rem 4rem;
+    padding: var(--space-medium) var(--space-large);
 }
 
 body>footer {
@@ -48,24 +50,6 @@ body>footer>h2 {
     position: absolute;
     box-shadow: var(--default-shadow);
     background-color: var(--background-secondary);
-}
-
-.commentary {
-    position: fixed;
-    display: block;
-    bottom: -6rem;
-    left: 50%;
-    transform: translateX(-50%);
-    height: auto;
-    background-color: var(--background-primary);
-    box-shadow: var(--default-shadow);
-    z-index: 1;
-    transition: 1s;
-}
-
-.commentary--active {
-    bottom: 1rem;
-    transition: 1s;
 }
 
 .heroContainer {
@@ -97,9 +81,9 @@ footer {
 
 .projects {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(45ch, 1fr));
-    gap: 2rem;
-        padding: 2rem 0rem;
+    grid-template-columns: repeat(auto-fit, minmax(60ch, 1fr));
+        gap: var(--space-medium);
+        padding: var(--space-medium) 0rem;
 }
 
 .project {
@@ -114,7 +98,7 @@ footer {
 }
 
 .project-content {
-    padding: 2rem;
+    padding: var(--space-medium);
     border: none;
     box-shadow: var(--default-shadow);
     flex: 1;
@@ -125,11 +109,13 @@ footer {
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-        min-height: 2rem;
+        min-height: var(--space-medium);
 }
 
 .project h3 {
     margin: 0;
+    font-size: var(--space-medium);
+        line-height: var(--space-large);
 }
 .project-image {
     object-fit: cover;
@@ -138,9 +124,9 @@ footer {
 }
 
 .gitIcon {
-    font-size: 2rem;
-    height: 2rem;
-    width: 2rem;
+    font-size: var(--space-large);
+        height: var(--space-large);
+        width: var(--space-large);
     text-decoration: none;
     color: inherit;
 }
@@ -150,7 +136,7 @@ footer {
     flex-direction: row;
     flex-wrap: wrap;
     align-items: center;
-    font-size: 4rem;
+    font-size: var(--space-large);
         gap: 0.5rem;
         margin: 0;
         padding: 0;
@@ -184,4 +170,15 @@ footer {
     padding-top: 1rem;
     display: flex;
     position: relative;
+}
+@media screen and (max-width: 768px) {
+    html {
+        --space-large: 2rem;
+        --space-medium: 1rem;
+    }
+
+    .projects {
+        display: flex;
+        flex-direction: column;
+    }
 }
