@@ -1,5 +1,5 @@
-import { Gameboard, Gamecell } from "../gameboard";
-import { Fleet, Ship } from "../ship";
+import { Gameboard, Gamecell } from "../gameboard.js";
+import { Fleet, Ship } from "../ship.js";
 import { describe, test, expect, beforeEach } from "vitest"
 
 describe("symbol", () => {

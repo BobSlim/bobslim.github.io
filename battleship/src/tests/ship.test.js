@@ -1,5 +1,4 @@
-import { Ship } from "../ship";
-import { Fleet, shipCoords, isOccupied, getKeys } from "../ship";
+import { Ship, Fleet, shipCoords, isOccupied, getKeys } from "../ship.js";
 import { describe, test, expect } from "vitest"
 
 const sampleMap = [
@@ -8,7 +7,7 @@ const sampleMap = [
 ];
 describe("utils", () => {
 	test("getkeys", () => {
-		expect(getKeys(sampleMap)).toEqual[("a", "b")];
+		expect(getKeys(sampleMap)).toEqual(["a", "b"]);
 	});
 	test("overlaps", () => {
 		expect(isOccupied(sampleMap, ["c"])).toBe(false);
