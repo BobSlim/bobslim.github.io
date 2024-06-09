@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+
+	<body>
+		<nav>
+			<li><a href="#" onclick="nav('/etch')">etch</a></li>
+			<li><a href="#" onclick="nav('/kebab')">kebab</a></li>
+			<li><a href="#" onclick="nav('/quotes')">quotes</a></li>
+			<li><a href="#" onclick="nav('/rps')">rps</a></li>
+			<li><a href="#" onclick="nav('/stars')">stars</a></li>
+			<li><a href="#" onclick="nav('/tictactoe')">tictactoe</a></li>
+			<li><a href="#" onclick="nav('/weather')">weather</a></li>
+		</nav>
+		<iframe id="frame" src="./kebab/index.html" frameborder="0"></iframe>
+	</body>
+
+	<script defer>
+		const rgbToLum = (R, G, B) => 0.2126 * R + 0.7152 * G + 0.0722 * B;
+
+		const frame = document.getElementById("frame");
+		const bodyStyles = window.getComputedStyle(frame.contentDocument.body);
+
+		const nav = (pathname) => {
+			window.history.pushState(
+				{},
+				pathname,
+				window.location.origin + pathname,
+			);
+		};
+
+		window.onpopstate = () => {
+			const frame = document.getElementById("frame");
+			frame.src = `./${window.location.pathname}/index.html`;
+		};
+	</script>
+
+	<style>
+		#frame {
+			width: 100%;
+			flex: 1;
+		}
+
+		body {
+			display: flex;
+			flex-direction: column;
+			height: 100vh;
+			margin: 0;
+			font-family: sans-serif;
+		}
+
+		nav {
+			position: absolute;
+			top: 0;
+			list-style: none;
+			display: flex;
+		}
+
+		nav a {
+			display: block;
+			padding: 0.5rem;
+		}
+
+		nav li:nth-child(even) {
+			background-color: rgba(0, 0, 0, 0.1);
+		}
+	</style>
+</html>

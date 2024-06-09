@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<style>
+			body {
+				background-color: black;
+				margin: 0;
+				height: 100dvh;
+				width: 400dvh;
+			}
+
+			main {
+				height: 100%;
+				position: relative;
+			}
+
+			.star {
+				color: transparent;
+				position: absolute;
+				background-color: white;
+				width: 1px;
+				height: 1px;
+				border-radius: 100%;
+			}
+
+			.star:hover {
+				color: white;
+			}
+
+			.star--bright {
+				color: white;
+			}
+
+			.tick {
+				position: absolute;
+				background-color: white;
+				height: 5px;
+				width: 1px;
+				bottom: 10px;
+				left: 20px;
+				color: white;
+			}
+		</style>
+	</head>
+
+	<body>
+		<canvas id="canvas" height="1000" width="4000"></canvas>
+		<main id="main"></main>
+	</body>
+
+	<script type="module">
+		import {
+			getData,
+			renderStar,
+			getStarInfo,
+			constellar,
+			getStarCoords,
+		} from "./script.js";
+
+		const stars = await getData();
+		window.stars = stars;
+		window.getStarInfo = getStarInfo;
+
+		const main = document.getElementById("main");
+		main.append(...stars.map((star) => renderStar(star)));
+
+		const /**@type {HTMLCanvasElement}*/ canvas =
+				document.getElementById("canvas");
+		const ctx = canvas.getContext("2d");
+		if (ctx === null) throw new Error();
+		ctx.strokeStyle = "#FFF";
+		ctx.font = "24px arial";
+		stars.forEach((star) => {
+			const { x, y } = getStarCoords(star);
+			ctx.beginPath();
+			ctx.roundRect(x * 10, y * 10, 1, 1);
+			ctx.stroke();
+		});
+		constellar.forEach((x) => {
+			const path = new Path2D();
+			const { x: firstX, y: firstY } = getStarCoords(x.points[0]);
+			x.points.forEach((point, i) => {
+				const { x, y } = getStarCoords(point);
+				if (i === 0) path.moveTo(x * 10, y * 10);
+				else path.lineTo(x * 10, y * 10);
+			});
+			ctx.stroke(path);
+			ctx.strokeText(x.abr, firstX * 10, firstY * 10);
+		});
+	</script>
+</html>

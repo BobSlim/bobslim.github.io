@@ -1,0 +1,185 @@
+html {
+	--background-primary: white;
+	--background-secondary: rgb(8, 145, 178);
+	--default-shadow: 1px 1px 5px lightgray;
+	--space-large: 4rem;
+	--space-medium: 2rem;
+	font-family: "roboto", system-ui;
+}
+
+html * {
+	box-sizing: border-box;
+}
+
+h1,
+h2,
+h3 {
+	font-family: "Playfair Display", system-ui;
+}
+body {
+	margin: 0;
+	overflow-x: hidden;
+}
+
+body > main,
+body > footer,
+body > header {
+	padding: var(--space-medium) var(--space-large);
+}
+
+body > footer {
+	color: white;
+}
+
+body > footer > h2 {
+	margin-bottom: 0;
+}
+.slantedDesignElement {
+	clip-path: polygon(
+		0 0,
+		/* left top */ 100% 0,
+		/* right top */ 100% calc(100% - 15vw),
+		/* right bottom */ 0% 100% /* left bottom */
+	);
+	width: 100%;
+	height: 50vh;
+	z-index: -1;
+	position: absolute;
+	box-shadow: var(--default-shadow);
+	background-color: var(--background-secondary);
+}
+
+.heroContainer {
+	position: relative;
+}
+
+.heroContainer > h1 {
+	position: absolute;
+	bottom: 0px;
+}
+
+.sectionAboutme {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+
+.sectionAboutme_content {
+	background-color: var(--background-primary);
+	padding: 2rem;
+	box-shadow: var(--default-shadow);
+	box-sizing: content-box;
+	max-width: 70ch;
+}
+
+footer {
+	background: var(--background-secondary);
+}
+
+.projects {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(60ch, 1fr));
+	gap: var(--space-medium);
+	padding: var(--space-medium) 0rem;
+}
+
+.project {
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+}
+
+.project > a {
+	text-decoration: none;
+	color: inherit;
+}
+
+.project-content {
+	padding: var(--space-medium);
+	border: none;
+	box-shadow: var(--default-shadow);
+	flex: 1;
+}
+
+.project-headerRow {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+	min-height: var(--space-medium);
+}
+
+.project h3 {
+	margin: 0;
+	font-size: var(--space-medium);
+	line-height: var(--space-large);
+}
+.project-image {
+	object-fit: cover;
+	width: 100%;
+	display: block;
+}
+
+.gitIcon {
+	font-size: var(--space-large);
+	height: var(--space-large);
+	width: var(--space-large);
+	text-decoration: none;
+	color: inherit;
+}
+.icons {
+	list-style: none;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	align-items: center;
+	font-size: var(--space-large);
+	gap: 0.5rem;
+	margin: 0;
+	padding: 0;
+}
+
+.icons li a {
+	text-decoration: none;
+	color: inherit;
+	display: inline-block;
+	height: 100%;
+	width: 100%;
+	bottom: 0px;
+	position: absolute;
+}
+
+.icons li .icon {
+	bottom: 0rem;
+	transition:
+		color 2s,
+		bottom 0.5s,
+		border 0.5s;
+	position: relative;
+	pointer-events: none;
+}
+
+.icons li:hover .icon {
+	bottom: 1rem;
+	transition:
+		color 0.5s,
+		bottom 1s,
+		border 0.5s;
+}
+
+.icons li {
+	padding-top: 1rem;
+	display: flex;
+	position: relative;
+}
+@media screen and (max-width: 768px) {
+	html {
+		--space-large: 2rem;
+		--space-medium: 1rem;
+	}
+
+	.projects {
+		display: flex;
+		flex-direction: column;
+	}
+}
