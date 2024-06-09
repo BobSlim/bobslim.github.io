@@ -1,4 +1,6 @@
-const data = await fetch("./data/constellations.json").then((res) => res.json());
+const data = await fetch("./data/constellations.json").then((res) =>
+	res.json(),
+);
 
 const splitLabels = (obj) => {
 	const { abr, nr, ...rest } = obj;
@@ -13,4 +15,4 @@ const splitLabels = (obj) => {
  * @typedef {{abr: String, nr: String, points: number[]}} Constellation
  */
 export const /**@type {Constellation[]}*/ constellations =
-		data.map(splitLabels);
+	data.map(splitLabels);

@@ -1,14 +1,25 @@
 {
-  "name": "static-widgets",
-  "version": "1.0.0",
-  "description": "This is for small, frontend widgets that don't have a build step.\r Mostly little microsites.",
-  "author": "",
-  "license": "ISC",
-  "devDependencies": {
+	"name": "static-widgets",
+	"version": "1.0.0",
+	"description": "This is for small, frontend widgets that don't have a build step.\r Mostly little microsites.",
+	"author": "",
+	"license": "ISC",
+	"devDependencies": {
 		"@types/eslint__js": "^8.42.3",
 		"eslint": "^9.4.0",
 		"prettier": "^3.3.1",
 		"typescript-eslint": "^8.0.0-alpha.29"
 	},
-	"type": "module"
+	"prettier": {
+		"useTabs": true,
+		"tabWidth": 4,
+		"endOfLine": "crlf",
+		"semi": true,
+		"printWidth": 80
+	},
+	"type": "module",
+	"scripts": {
+		"format:fix": "prettier . --write",
+		"lint:fix": "eslint . --fix"
+	}
 }
