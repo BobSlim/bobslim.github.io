@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<form id="newTaskForm" action="">
+			<label for="">
+				New Todo:
+				<input autofocus type="text" name="todoText" id="" />
+			</label>
+			<button type="submit">Add</button>
+		</form>
+		<ul id="todoSection"></ul>
+	</body>
+	<script type="module" src="./script.js"></script>
+	<script>
+		const newTaskForm = document.getElementById("newTaskForm");
+		const handleSubmit = (e) => {
+			e.preventDefault();
+			const newText = new FormData(newTaskForm).get("todoText");
+			newTaskForm.elements["todoText"].value = "";
+			const sect = document.getElementById("todoSection");
+			const newLi = document.createElement("li");
+			const newTask = document.createElement("todo-task");
+			newTask.innerHTML = newText;
+			newLi.appendChild(newTask);
+			sect.appendChild(newLi);
+		};
+		newTaskForm.addEventListener("submit", handleSubmit)
+	</script>
+	<style>
+		todo-task{
+			cursor: pointer;
+		}
+
+		todo-task[done] {
+			text-decoration: line-through;
+			color: grey;
+		}
+	</style>
+</html>
