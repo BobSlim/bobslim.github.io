@@ -7,6 +7,7 @@ const connect = () => {
 		request.onsuccess = () => resolve(request.result);
 		/** @param {IDBVersionChangeEvent} event */
 		request.onupgradeneeded = function (event) {
+			const db = event.target.result;
 			db.createObjectStore("tasks", { keyPath: "id" });
 		};
 	});
