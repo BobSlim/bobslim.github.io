@@ -13,7 +13,7 @@ const addTask = (newTask) => {
 	const newTaskComponent = new task.component(newTask);
 	sect.appendChild(newTaskComponent);
 	newTaskComponent.addEventListener("task-update", (event) => {
-		taskRepo.update(event.target.model).then(console.log);
+		taskRepo.update(event.target.model);
 	});
 };
 

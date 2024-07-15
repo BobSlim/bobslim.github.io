@@ -71,14 +71,22 @@ class TodoRepo {
 const todoTemplate = document.createElement("template");
 todoTemplate.innerHTML = /*html*/ `
 <style>
-	:host {
+	:host li {
 		cursor: pointer;
+		list-style-type: "☐"
 	}
 
-	:host([done]) {
+	:host([done]) li {
 		text-decoration: line-through;
+		text-decoration-color: green;
+		list-style-type: "☑";
 		color: grey;
 	}
+
+	:host([done]) li::marker {
+		color: green;
+	}
+
 </style>
 <li><slot></slot></li>
 `;
@@ -108,7 +116,7 @@ export class TodoTask extends HTMLElement {
 	attributeChangedCallback(name, ...rest) {
 		switch (name) {
 			case "done":
-				this.onDoneChange(rest);
+				this.onDoneChange(...rest);
 				break;
 			default:
 				break;
