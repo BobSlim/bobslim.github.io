@@ -6,39 +6,18 @@
 		<title>Document</title>
 	</head>
 	<body>
-		<form id="newTaskForm" action="">
-			<label for="">
-				New Todo:
-				<input autofocus type="text" name="todoText" id="" />
-			</label>
-			<button type="submit">Add</button>
-		</form>
-		<ul id="todoSection"></ul>
+		<main>
+			<button id="clearButton">clear all</button>
+			<form id="newTaskForm" action="">
+				<label for="">
+					New Todo:
+					<input autofocus type="text" name="todoText" id="" />
+				</label>
+				<button type="submit">Add</button>
+			</form>
+			<ul id="todoSection"></ul>
+		</main>
 	</body>
-	<script type="module" src="./script.js"></script>
-	<script>
-		const newTaskForm = document.getElementById("newTaskForm");
-		const handleSubmit = (e) => {
-			e.preventDefault();
-			const newText = new FormData(newTaskForm).get("todoText");
-			newTaskForm.elements["todoText"].value = "";
-			const sect = document.getElementById("todoSection");
-			const newLi = document.createElement("li");
-			const newTask = document.createElement("todo-task");
-			newTask.innerHTML = newText;
-			newLi.appendChild(newTask);
-			sect.appendChild(newLi);
-		};
-		newTaskForm.addEventListener("submit", handleSubmit)
-	</script>
-	<style>
-		todo-task{
-			cursor: pointer;
-		}
-
-		todo-task[done] {
-			text-decoration: line-through;
-			color: grey;
-		}
-	</style>
+	<script type="module" src="./index.js"></script>
+	<link rel="stylesheet" href="style.css" />
 </html>
