@@ -1,5 +1,5 @@
-export const definitely = (obj, constructor) =>
-	obj instanceof constructor ? obj : new constructor(obj);
+export const definitely = (obj, builder) =>
+	obj instanceof builder ? obj : new builder(obj);
 
 export const register = (defaultName = "todo-undefined") =>
 	function (name = defaultName) {

@@ -1,0 +1,30 @@
+body {
+	max-width: 70ch;
+	margin: auto;
+	font-family: sans-serif;
+}
+
+.button-group {
+	display: flex;
+	flex-direction: row;
+}
+
+radio-button {
+	flex: 1;
+	margin: 0.25rem;
+	padding: 1rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+radio-button[selected="true"] {
+	outline: 1px solid blue;
+}
+
+button[type="submit"] {
+	width: 100%;
+	padding: 2rem;
+	margin-bottom: 2rem;
+	font-size: 2rem;
+}

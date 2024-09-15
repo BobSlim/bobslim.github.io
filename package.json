@@ -10,7 +10,8 @@
 	},
 	"type": "module",
 	"prettier": {
-		"useTabs": true
+		"useTabs": true,
+		"tabWidth": 4
 	},
 	"scripts": {
 		"fix": "@biomejs/biome check --write ."
