@@ -9,36 +9,17 @@ for (const question of questions.reverse()) {
 	form.prepend(newQuestion);
 }
 
+import results from "./results.js";
 const renderResult = (result) => {
 	const [trues, total] = result;
 	const percentage = (trues / total) * 100;
 
-	let resultTitle = "Probably not asian.";
-	let resultText =
-		"I don't make the rules. Sorry. If you are asian, I guess that makes you a banana: white on the inside, yellow on the outside.";
-
-	switch (true) {
-		case percentage >= 90:
-			resultTitle = "Basically an asian.";
-			resultText =
-				"Yeah, you hit pretty much every box somehow. I'm impressed. You fit every stereotype I could think of, which makes you the Base Asian. Every other asian is just a subset of you.";
-			break;
-		case percentage >= 70:
-			resultTitle = "Likely an asian.";
-			resultText =
-				"You hit most of them. That means you fit the stereotype, and I probably won't be wrong if I called you an asian. Welcome to the club, kiddo, proud of you.";
-			break;
-		case percentage >= 50:
-			resultTitle = "Not a *basic* asian.";
-			resultText =
-				"You didn't answer yes to many of them, which means you don't fit this stereotype. Congratulations on not being basic, I guess. Woohoo?";
-			break;
-	}
+	const { title, text } = results.find((x) => percentage >= x.threshold);
 
 	const resultString = /*html*/ `
         Out of ${total} questions, you have answered yes to ${trues} (${percentage}%). This makes you:
-        <h2>${resultTitle}</h2>
-        ${resultText}
+        <h2>${title}</h2>
+        ${text}
         <p><small>**please note that this is strictly for entertainment. I mean no offense by these comments.</small></p>
         
     `;
