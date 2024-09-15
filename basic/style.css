@@ -19,7 +19,8 @@ radio-button {
 	justify-content: center;
 }
 
-radio-button[selected="true"] {
+radio-button[selected="true"],
+radio-button:hover {
 	outline: 1px solid blue;
 }
 
