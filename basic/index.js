@@ -52,10 +52,10 @@ form.onsubmit = (e) => {
 	for (const [_key, value] of formData.entries()) {
 		answerArray.push(value);
 	}
-	// if (answerArray.length === questions.length) {
-	const trues = answerArray.reduce((acc, val) => {
-		return acc + (val === "true" ? 1 : 0);
-	}, 0);
-	renderResult([trues, questions.length]);
-	// }
+	if (answerArray.length === questions.length) {
+		const trues = answerArray.reduce((acc, val) => {
+			return acc + (val === "true" ? 1 : 0);
+		}, 0);
+		renderResult([trues, questions.length]);
+	}
 };
