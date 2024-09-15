@@ -18,18 +18,18 @@ const renderResult = (result) => {
 		"I don't make the rules. Sorry. If you are asian, I guess that makes you a banana: white on the inside, yellow on the outside.";
 
 	switch (true) {
-		case percentage === 100:
+		case percentage >= 90:
 			resultTitle = "Basically an asian.";
 			resultText =
-				"Yeah, you hit every box somehow. I'm impressed. You fit every stereotype I could think of, which makes you the Base Asian. Every other asian is just a subset of you.";
+				"Yeah, you hit pretty much every box somehow. I'm impressed. You fit every stereotype I could think of, which makes you the Base Asian. Every other asian is just a subset of you.";
 			break;
-		case percentage >= 75:
+		case percentage >= 70:
 			resultTitle = "Likely an asian.";
 			resultText =
 				"You hit most of them. That means you fit the stereotype, and I probably won't be wrong if I called you an asian. Welcome to the club, kiddo, proud of you.";
 			break;
 		case percentage >= 50:
-			resultTitle = "Not a basic asian.";
+			resultTitle = "Not a *basic* asian.";
 			resultText =
 				"You didn't answer yes to many of them, which means you don't fit this stereotype. Congratulations on not being basic, I guess. Woohoo?";
 			break;
