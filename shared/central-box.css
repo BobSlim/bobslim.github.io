@@ -1,0 +1,25 @@
+html {
+	font-family: "Comfortaa", sans-serif;
+	line-height: 1.5;
+	--spacing-magic: calc(1rem + 3dvw);
+	--spacing-magic-small: calc(var(--spacing-magic) / 2);
+	--clr-accent: rgb(90, 66, 126);
+	--clr-background: rgb(210, 193, 231);
+}
+
+body {
+	min-height: 100dvh;
+	max-width: 100dvw;
+	margin: 0;
+	background-color: var(--clr-background);
+	display: flex;
+	flex-direction: column;
+}
+
+main {
+	margin: auto;
+	background-color: white;
+	max-width: 70ch;
+	width: min(100%, 70ch);
+	box-shadow: 0.5rem 0.5rem 1rem gray;
+}
