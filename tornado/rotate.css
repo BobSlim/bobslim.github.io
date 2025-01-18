@@ -1,31 +1,20 @@
 @keyframes tornado {
     100% {
-        transform: rotate(1turn);
+        transform: rotate(-1turn);
     }
 }
 
 .rotate {
-    position: absolute;
-    top: 50%;
-    bottom: 50%;
-    left: 50%;
-    right: 50%;
     animation: tornado linear calc(20s + 1s * var(--i)) infinite;
-}
-
-.rotate p {
-    transform-origin: center;
-    text-align: center;
-    position: relative;
+    position: absolute;
+    bottom: 50%;
+    top: 50%;
     left: 50%;
     right: 50%;
-    bottom: calc(100px + 50px * var(--i));
-    max-width: 70ch;
-    width: 70ch;
-    text-align: center;
 }
 
 .main {
-    width: 50dvw;
+    width: 100dvw;
+    height: 100dvh;
     margin: auto;
 }

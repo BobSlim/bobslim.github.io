@@ -1,19 +1,62 @@
+const textBox = document.body;
+
+const myWarp = {
+    path: {
+        radius: 50,
+        angle: "0deg",
+    },
+    targets: ["#warp", ".circled", ".rotate"],
+    rotationMode: "rotate",
+    indent: "100px",
+}
+
+const splitText = (text) => {
+    const midWay = Math.floor(text.length / 2 + 5)
+    const firstHalf = text.slice(0, midWay);
+    const secondHalf = text.slice(midWay);
+    return [firstHalf, secondHalf];
+}
+
 const addText = (textArray) => {
+    const warpConfigs = []
+    textArray = textArray.flatMap(splitText)
     for (const i in textArray) {
+        const className = `rotate-${i}`
+        const text = textArray[i]
+
         const parentElement = document.createElement("div");
-        parentElement.classList.add("rotate");
-        parentElement.style.setProperty("--i", i);
+        parentElement.classList.add(className, "rotate");
+        parentElement.style.setProperty("--i", Math.floor(text.length * 0.1).toString())
+        parentElement.innerText = text;
 
-        const newElement = document.createElement("p");
-        newElement.innerText = textArray[i];
+        const randomAngle = Math.floor(Math.random() * 360)
 
-        parentElement.append(newElement);
+        warpConfigs.push({
+            ...myWarp,
+            path: {
+                radius: 10 + text.length * 1.5,
+                angle: `${randomAngle}deg`
+            },
+            targets: [`.${className}`]
+        })
+
         textBox.append(parentElement);
     }
 
-    return textArray;
+    return warpConfigs;
 }
 
-fetch("./text.json").then((res) => res.json()).then((x) => x.map((y) => y.text)).then(addText)
+const treatQuote = (y) => {
+    let returnValue = `${y.text} - ${y.person}`
+    if (y.context) {
+        returnValue = `${returnValue}, ${y.context}`
+    }
+    return returnValue
+}
 
-const textBox = document.getElementById("textBox");
+export const main = async () => {
+    return await fetch("./text.json")
+        .then((res) => res.json())
+        .then((x) => x.map(treatQuote))
+        .then(addText)
+}

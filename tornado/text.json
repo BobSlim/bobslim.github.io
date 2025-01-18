@@ -14,7 +14,13 @@
         "person": "Alexis Carrel"
     },
     {
-        "text": "I am nothing.",
-        "person": "Self"
+        "text": "Subdue the regret. Dust yourself off, proceed. You'll get it in the next life, where you don't make mistakes.",
+        "person": "Voilition",
+        "context": "Disco Elysium"
+    },
+    {
+        "text": "The road to healing is going to be a long one. Stay the course. You will make it, some day. Just remember: You've made it this far... and it's just a bit farther now. Let's finish this.",
+        "person": "Voilition",
+        "context": "Disco Elysium"
     }
 ]
