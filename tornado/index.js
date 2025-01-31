@@ -1,3 +1,5 @@
+import "./spiral.js"
+
 const textBox = document.body;
 
 const myWarp = {
